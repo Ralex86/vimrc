@@ -58,8 +58,7 @@ set shiftwidth=2
 " syntaxic
 
 set statusline+=%#warningmsg#
-set statusline+=%{
-SyntasticStatuslineFlag()}
+set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute ","trimming empty <", "unescaped &" , "lacks \"action", "is not recognized!","discarding unexpected"]
 
@@ -91,7 +90,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 EOT
 
 cd
-mkdir -p .vim/{autoload,colors,syntax,plugin,spell,config}
+mkdir -p .vim/{autoload,colors,syntax,plugin,spell,bundle,config}
 
 mv .vimrc .vim/vimrc
 ln -s .vim/vimrc .vimrc
@@ -105,6 +104,7 @@ ln -s ../pathogen/autoload/pathogen.vim .
 echo "installing plugins"
 echo "...................."
 echo "installing gruvbox"
+
 cd ~/.vim/bundle
 git clone https://github.com/morhetz/gruvbox
 
@@ -112,7 +112,9 @@ echo "installing nerdcommenter"
 cd ~/.vim/bundle
 git clone https://github.com/ddollar/nerdcommenter
 
-echo "installing nerdtree"   
+echo "installing nerdtree"
+cd ~/.vim/bundle
+git clone https://github.com/scrooloose/nerdtree
 cd ~/.vim/bundle
 git clone https://github.com/jistr/vim-nerdtree-tabs
 
@@ -129,7 +131,7 @@ cd ~/.vim/bundle
 git clone https://github.com/othree/html5-syntax.vim
 
 echo "surround "  
-cd ~/.vim/bundle        
+cd ~/.vim/bundle
 git clone https://github.com/tpope/vim-surround
 
 echo "vim-airline-themes"
@@ -141,11 +143,12 @@ cd ~/.vim/bundle
 git clone https://github.com/potatoesmaster/vim-movelines
 
 echo "syntastic"
-cd ~/.vim/bundle      
+cd ~/.vim/bundle
 git clone https://github.com/scrooloose/syntastic
 
 echo "vim-closetag"
-cd ~/.vim/bundle 
+cd ~/.vim/bundle
+
 git clone https://github.com/alvan/vim-closetag
 	
 echo "vim-prettier"
